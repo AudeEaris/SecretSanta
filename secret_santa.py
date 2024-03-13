@@ -1,5 +1,6 @@
 import random
 
+
 class SecretSanta:
     def __init__(self, friends: list[str], couples: list[tuple[str, str]]):
         self.friends = friends
@@ -35,8 +36,6 @@ class SecretSanta:
                 new_friends_list.insert(index_insertion, self.couples[partners.index(new_friends_list[i])][0])
 
         return new_friends_list
-
-
 
     def controlled_allocation(self):
         """

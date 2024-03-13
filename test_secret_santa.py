@@ -8,6 +8,7 @@ NO_OF_TEST_LOOPS = 1000
 
 calculator = SecretSanta(FRIENDS, COUPLES)
 
+
 class MyTestCase(unittest.TestCase):
     def test_couples(self):
         """Test that couples don't offer gifts to each other"""
@@ -49,6 +50,7 @@ class MyTestCase(unittest.TestCase):
             secret_santas_partners = calculator.controlled_allocation()
 
             self.assertEqual(len(secret_santas_partners), len(FRIENDS))
+
 
 if __name__ == '__main__':
     unittest.main()
