@@ -78,7 +78,4 @@ class SecretSanta:
                 else:
                     gift_between_couple = False
 
-
         return secret_santa
-
-

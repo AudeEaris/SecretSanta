@@ -51,7 +51,7 @@ class MyTestCase(unittest.TestCase):
             secret_santas_partners = calculator.controlled_allocation()
 
             self.assertEqual(len(secret_santas_partners), len(FRIENDS))
-            
+
     def test_couples_random(self):
         """Test that couples don't offer gifts to each other"""
         for i in range(NO_OF_TEST_LOOPS):
