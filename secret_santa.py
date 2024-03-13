@@ -50,3 +50,35 @@ class SecretSanta:
         for i in range(len(shuffled_list)):
             secret_santa.append((shuffled_list[i], rotated_List[i]))
         return secret_santa
+
+    def random_pairing(self):
+        """
+        Instead of controlling the position of the couples in the list, we just shuffle and rotate to allocate
+        Then we test if any couple is assigned to each other we start again
+        :return:
+        the list of tuples gifting each others
+        """
+        gift_between_couple = True
+        new_list = self.friends[:]
+        random.shuffle(new_list)
+        secret_santa = []
+        if len(self.couples) == 0:
+            rotated_list = self._rotate_list(new_list, 1)
+            secret_santa = list(zip(new_list, rotated_list))
+            return secret_santa
+
+        while gift_between_couple:
+            random.shuffle(new_list)
+            rotated_list = self._rotate_list(new_list, 1)
+            secret_santa = list(zip(new_list, rotated_list))
+            for couple in self.couples:
+                if couple in secret_santa or couple[::-1] in secret_santa:
+                    gift_between_couple = True
+                    break
+                else:
+                    gift_between_couple = False
+
+
+        return secret_santa
+
+
