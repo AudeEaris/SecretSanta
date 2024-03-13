@@ -79,3 +79,37 @@ class SecretSanta:
                     gift_between_couple = False
 
         return secret_santa
+
+if __name__ == '__main__':
+    friends = []
+    i = 0
+    stop = False
+    print("Add the friends to the list: ")
+    while not stop:
+        i += 1
+        friend = input(f"Please add the name of the friend no{i}, type stop to finish: ")
+        if friend == 'stop':
+            stop = True
+            break
+        friends.append(friend)
+    stop = False
+    print("Add the couples to the list: ")
+    i = 1
+    j = 0
+    couples = []
+    person1 = ''
+    while not stop:
+        j += 1
+        friend = input(f"Please add the name of the person no{j} in the couple no{i}, type stop to finish: ")
+        if friend == 'stop':
+            stop = True
+            break
+        if j == 1:
+            person1 = friend
+        if j == 2:
+            couples.append((person1, friend))
+            i += 1
+            j = 0
+    print(friends, couples)
+    calculator = SecretSanta(friends, couples)
+    print(calculator.controlled_allocation())
