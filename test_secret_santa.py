@@ -106,7 +106,10 @@ class MyTestCase(unittest.TestCase):
             calculator.controlled_allocation()
             time_end = time.time()
             time_array_controlled.append(time_end - time_start)
-        print(sum(time_array_random), sum(time_array_controlled))
+        print(f'Total time for random method with {NO_OF_TEST_LOOPS} iterations: {sum(time_array_random)}s')
+        print(f'Mean time for random method: {sum(time_array_random)/NO_OF_TEST_LOOPS}s')
+        print(f'Total time for controlled method with {NO_OF_TEST_LOOPS} iterations: {sum(time_array_controlled)}s')
+        print(f'Mean time for controlled method: {sum(time_array_controlled)/NO_OF_TEST_LOOPS}s')
 
 
 if __name__ == '__main__':
